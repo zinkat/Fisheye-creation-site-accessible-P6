@@ -9,17 +9,17 @@ async function getPhotographers() {
 }
 ;
 async function displayData(photographers) {
+	//création section pour affiche les carte photographe
 	const photographersSection = document.querySelector(".photographer_section");
 
+	//boucle pour récuperer les photographes
 	photographers.forEach((photographer) => {
 		const photographerModel = photographerFactory(photographer);
 		const userCardDOM = photographerModel.getUserCardDOM();
 		photographersSection.appendChild(userCardDOM);
 	});
-	console.log(photographers)
+
 };
-
-
 
 async function init() {
 	// Récupère les datas des photographes

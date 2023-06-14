@@ -16,37 +16,43 @@
       </header>
       
       <main id="main">
-
         <section class="photograph-header">
           <article class="photograph_infos">
           </article>
-          <button aria-label="Contact Me" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          <button aria-label="Contactez-moi" class="contact_button">Contactez-moi</button>
         </section>
         <section class="photographermedia_section"></section>
         <section class="photograph_medias"></section> 
       </main>
 
-      <div id="contact_modal">
+      <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modal-contact">
         <div class="modal">
           <header>
-            <h2 class="modal-title">Contactez-moi</h2>
-            <img src="./assets/icons/close.svg" alt="Close Contact form" onclick="closeModal()" />
+            <h2>Contactez-moi <br><span id="modalTitle"></span></h2>
+            <img role="button" src="./assets/icons/close.svg" alt="close modal" class="close"  />
           </header>
-          <form onsubmit="sendMessage(event)">
-            <div>
-              <label for="firstName">Prénom</label>
-              <input id="firstName" name="firstName" />
-
-              <label for="lastName">Nom</label>
-              <input id="lastName" name="lastName" />
-
-              <label for="email">Email</label>
-              <input id="email" name="email" />
-
-              <label for="message">Message</label>
-              <textarea id="message" name="message"></textarea>
+          <form  name="message" class="form">
+            <div class="formData">
+              <label class="text-label" for="first">Prénom</label>
+              <input class="text-control" type="text" id="first"  name="first" minlength="2" />  
+               <p class="msgError"></p>
             </div>
-            <button class="contact_button" aria-label="Send">Envoyer</button>
+            <div class="formData">
+              <label class="text-label" for="last">Nom</label>
+              <input  class="text-control" type="text"   id="last"  name="last" minlength="2"/>
+              <p class="msgError"></p>
+            </div>
+            <div class="formData">
+              <label class="text-label" for="email">E-mail</label>
+              <input class="text-control" type="email" id="email" name="email"/>
+              <p class="msgError"></p>
+            </div>
+            <div class="formData">
+              <label class="text-label" for="txtMsg">Votre message</label>
+              <textarea role="textbox" id="txtMsg" class="text-control"  name="txtMsg" minlength="10"  maxlength="200"></textarea>
+              <p class="msgError"></p> 
+            </div>
+            <button class="submit_button"  aria-label="Envoyer">Envoyer</button>
           </form>
         </div>
       </div>

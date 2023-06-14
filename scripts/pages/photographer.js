@@ -15,7 +15,7 @@ async function getPhotographers() {
         //console.log(datas);
         return datas;
 };
-    
+
     
 async function displayDataPhotographer(photographers) {
     //création section pour affiche les carte photographe
@@ -33,10 +33,9 @@ async function displayDataPhotographer(photographers) {
 };
 
 function PhotographerName(photographers) {
-    PhotographerName =""
     photographers.forEach((photographer) => {
         if (photographer.id===id){
-            //console.log(photographer.name);
+            console.log(photographer.name);
             PhotographerName = photographer.name;
         }
     });

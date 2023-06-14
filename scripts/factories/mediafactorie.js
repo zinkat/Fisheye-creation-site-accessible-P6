@@ -2,10 +2,22 @@ function PhotographerFactoryDetail(data) {
     const { name, portrait, city, country, tagline, price, id} = data;
     console.log(name);
     const picture = `./assets/photographers/${portrait}`
-
+    // const datajs =[
+    //     photographers ={
+    //         name, portrait, city, country, tagline, price, id
+    //     },
+    //   media={
+    //     portrait, city, country, tagline, price, id
+    //   },
+    // ]
+    // console.log(datajs);
     function getUserCardDOM() {
         const article = document.querySelector('.photograph_infos' );
-        const btnContact = document.querySelector('.contact_button')    
+        const btnContact = document.querySelector('.contact_button')   
+
+       //nom photographer form
+        const Pname = document.getElementById("modalTitle");
+        Pname.textContent = name;
 
         const container_photo = document.createElement("figure");
         container_photo.classList.add("container_photo")
@@ -32,6 +44,7 @@ function PhotographerFactoryDetail(data) {
         img.setAttribute("src", picture);
         img.setAttribute("alt", `portrait du photographe ${name}`);
 
+
         article.appendChild(container_photo);
         container_photo.appendChild(infosphotographe);
         infosphotographe.appendChild(photographerName);
@@ -40,6 +53,8 @@ function PhotographerFactoryDetail(data) {
         container_photo.appendChild(btnContact);
         container_photo.appendChild(divPortrait);
         divPortrait.appendChild(img);
+
+        
 
         //pop
         const prix = document.createElement("p");
@@ -55,7 +70,8 @@ function PhotographerFactoryDetail(data) {
 function mediaPhotographerFactory(PhotographerName,media) {
     const {id, photographerId, title, image, likes, date, price, video} = media;
     const mediaphotographer = `./assets/images/${PhotographerName}/${image}`;
-    const videophotographer =  `./assets/images/${PhotographerName}/${video}`;
+   // const videophotographer =  `./assets/images/${PhotographerName}/${video}`;
+    //console.log(videophotographer);
     function getUserCardMedia(){
         const photographerMediaSection = document.querySelector(".photographermedia_section")
         const articleMedia = document.createElement('article')
@@ -77,13 +93,27 @@ function mediaPhotographerFactory(PhotographerName,media) {
         const img = document.createElement('img');
         img.setAttribute("src", mediaphotographer);
         img.classList.add("photo")
+
+        // const video = document.createElement("video");
+        // video.classList.add("photo")
+        // video.setAttribute("src",videophotographer )
+
         photographerMediaSection.appendChild(articleMedia);
         articleMedia.appendChild(divMedia);
-        divMedia.appendChild(img)
+        divMedia.appendChild(img);
+        // divMedia.appendChild(video);
         articleMedia.appendChild(infoPhoto);
         infoPhoto.appendChild(titlePhoto);
         infoPhoto.appendChild(nbLikePhoto);
       
     }
-    return { id, photographerId, getUserCardMedia }
+   
+
+    function getUserCardMediaVideo(){
+
+      
+    }
+    return { id, photographerId,  getUserCardMedia, getUserCardMediaVideo }
+
+
 };

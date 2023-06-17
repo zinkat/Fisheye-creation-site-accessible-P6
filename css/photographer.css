@@ -1,68 +1,8 @@
-
-
-#media_modal {
-	display: none;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: #fafafa;
-}
-
-#left-arrow,
-#right-arrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	font-size: 5rem;
-	color: #901c1c;
-	background-color: transparent;
-	border: none;
-}
-
-#left-arrow {
-	left: 20%;
-}
-
-#right-arrow {
-	right: 20%;
-}
-
-#media_modal > button:nth-child(3) {
-	cursor: pointer;
-	position: absolute;
-	top: 10%;
-	right: 20%;
-	border: none;
-	background-color: transparent;
-}
-
-#media_modal svg path {
-	fill: #901c1c;
-}
-
-#media_modal > div {
-	position: absolute;
-	width: 50%;
-	height: 80vh;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-#media_modal > div img,
-#media_modal > div video {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-#media_modal span {
-	color: #901c1c;
-	font-size: 1.25em;
-}
-
+*, *::before, *::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+  }
 
 /* css header page photographer */
 
@@ -128,13 +68,18 @@ display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
 margin: 0;
-padding: 50px;
+padding: 30px 50px 50px 50px;
+}
+
+.photographermedia_section a{
+
+	text-decoration: none;
 }
 
 
-.article_media{
+.article_media {
 width: 300px;
-height: 350px;
+height:400px;
 background-color: #fafafa;
 margin: 20px;
 display: flex;
@@ -147,17 +92,21 @@ overflow: hidden;
 
 .div_media{
 width: 100%;
-height: 300px;
-object-fit: cover;
-object-position: center;
+height: 100%;
 overflow: hidden;
+background-color: white;
 }
 
-.photo{
+.photo {
 width: 100%;
 height: 100%;
+max-width : 300px;
+min-height : 356px;
 object-fit: cover;
 object-position: center;
+cursor: pointer;
+border-radius: 5px;
+vertical-align: baseline;
 }
 
 .infoPhoto{
@@ -185,75 +134,7 @@ color: #901c1c;
 padding: 0 10px 
 }
 
-/* ***** */
 
-#select {
-	margin: 25px 100px;
-}
-
-#select > label {
-	margin-right: 25px;
-	font-weight: bold;
-}
-
-#orderSelect {
-	height: 50px;
-	padding: 0 10px;
-	background-color: #901c1c;
-	border-radius: 5px;
-	color: white;
-}
-
-#photograph_medias {
-	margin: 100px;
-	margin-top: 50px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 75px 100px;
-}
-
-#photograph_medias a {
-	text-decoration: none;
-}
-
-#photograph_medias article {
-	width: 100%;
-	height: 100%;
-}
-
-#photograph_medias img,
-#photograph_medias video {
-	cursor: pointer;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 5px;
-}
-
-#photograph_medias div {
-	color: #901c1c;
-	font-size: 1.25em;
-	display: flex;
-	justify-content: space-between;
-}
-
-#photograph_medias div span:last-child {
-	cursor: pointer;
-}
-
-.photograph_likeprice {
-	width: 225px;
-	position: fixed;
-	bottom: 0;
-	right: 2rem;
-	padding: 15px 20px;
-	font-weight: bold;
-	background-color: #db8876;
-	border-radius: 10px 10px 0 0;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
 /***modal form***/
 #contact_modal {
 	display: none;
@@ -371,11 +252,51 @@ font-weight: bold;
 margin: 0;
 padding-top:0.5em;
 }
-.hidden {
-display: none;
-opacity: 0;
+
+
+.infoPrixAvis{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	bottom:0px;
+	right:260px;
+	height:50px;
+	width: 300px;
+	background-color: #db8876;
+	color: black;
+	padding:0 10px 0 10px ;
+	font-size: 1.1rem;
+
   }
-.visible {
-display: flex;
-opacity: 1;
+  
+  .artistePrice{
+	order:2;
   }
+  .TotalLikes{
+	order:1;
+  }
+
+
+#select {
+    margin: 20px 100px;
+}
+
+#select > label {
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+#select > label {
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+#orderSelect {
+	height: 50px;
+	padding: 0 10px;
+	background-color: #901c1c;
+	border-radius: 5px;
+	color: white;
+}
+  

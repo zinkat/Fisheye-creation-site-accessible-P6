@@ -21,10 +21,20 @@
           </article>
           <button aria-label="Contactez-moi" class="contact_button">Contactez-moi</button>
         </section>
-        <section class="photographermedia_section"></section>
+        <div id="select">
+          <label for="orderSelect">Trier par</label>
+          <select name="orderSelect" id="orderSelect">
+            <option value="populaire">Popularité</option>
+            <option value="date">Date</option>
+            <option value="title">Titre</option>
+          </select>
+        </div>
         <section class="photograph_medias"></section> 
+        <section class="photographermedia_section"></section>
+     
       </main>
-
+      <footer>
+      </footer>
       <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modal-contact">
         <div class="modal">
           <header>
@@ -56,7 +66,6 @@
           </form>
         </div>
       </div>
-     
       </div>
       <script src="./scripts/pages/photographer.js" ></script>
       <script src="./scripts/factories/mediafactorie.js"></script>

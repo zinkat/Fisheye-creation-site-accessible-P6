@@ -3,9 +3,6 @@ function photographerFactory(data) {
     const picture = `./assets/photographers/${portrait}`
 
 
-    // const idphotographe = `${id}`;
-    // console.log(idphotographe);
-
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.classList.add("card_photographer");
@@ -69,3 +66,4 @@ function photographerFactory(data) {
 };
 
 
+    

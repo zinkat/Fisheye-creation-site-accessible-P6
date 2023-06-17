@@ -1,10 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
-
-
 let params = (new URL(document.location)).searchParams;
 //let PhotographerName = params.get('name'); 
 let id = parseInt(params.get('id'));
-
 
 
 async function getPhotographers() {
@@ -31,42 +28,47 @@ async function displayDataPhotographer(photographers) {
         }
     });   
 };
+ 
+// function PhotographerName(photographers) {
+//     photographers.forEach((photographer) => {
+//         if (photographer.id===id){
+//             console.log(photographer.name);
+//             PhotographerName = photographer.name;
+//         }
+//     });
+//     return PhotographerName;
+// };
 
-function PhotographerName(photographers) {
-    photographers.forEach((photographer) => {
-        if (photographer.id===id){
-            console.log(photographer.name);
-            PhotographerName = photographer.name;
-        }
-    });
-    return PhotographerName;
-};
-
-    async function displayMediaPhotographer(PhotographerName,medias) {
+    async function displayMediaPhotographer(medias) {
         //création section pour affiche les carte photographe
-       // const photographersMediaSection = document.querySelector(".photograph_medias");
-
+       // const photographersMediaSection = document.querySelector(".photographermedia_section");
+       let totalLikes = 0;
         //boucle pour récuperer les photographes
         medias.forEach((media) => {
             if (media.photographerId==id){
-            const mediaModel = mediaPhotographerFactory(PhotographerName,media);
+            const mediaModel = mediaPhotographerFactory(media);
             const userCardMedia = mediaModel.getUserCardMedia();
+            totalLikes = totalLikes + media.likes;
+            //console.log(media.likes);
            // photographersMediaSection.appendChild(userCardMedia);
             }
         });
-    
+        //console.log(totalLikes);
+        const Likes = countLikes(totalLikes);
     };
+
 
     async function init() {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         const { media } = await getPhotographers();
-        const photographername = PhotographerName(photographers)
+       // const photographername = PhotographerName(photographers)
         //console.log(photographername);
         displayDataPhotographer(photographers);
-        displayMediaPhotographer(PhotographerName,media);
+        displayMediaPhotographer(media);
         // displayMediaPhotographer(medias);
       
     };
     
     init();
+   

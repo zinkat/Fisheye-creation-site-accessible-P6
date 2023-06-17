@@ -1,21 +1,16 @@
 function PhotographerFactoryDetail(data) {
+    
     const { name, portrait, city, country, tagline, price, id} = data;
-    console.log(name);
+    //console.log(name);
     const picture = `./assets/photographers/${portrait}`
-    // const datajs =[
-    //     photographers ={
-    //         name, portrait, city, country, tagline, price, id
-    //     },
-    //   media={
-    //     portrait, city, country, tagline, price, id
-    //   },
-    // ]
-    // console.log(datajs);
+    
+    
+    
+
     function getUserCardDOM() {
         const article = document.querySelector('.photograph_infos' );
         const btnContact = document.querySelector('.contact_button')   
 
-       //nom photographer form
         const Pname = document.getElementById("modalTitle");
         Pname.textContent = name;
 
@@ -38,12 +33,13 @@ function PhotographerFactoryDetail(data) {
 
         const divPortrait = document.createElement("div");
         divPortrait.classList.add("divPortrait");
-
+        
         const img = document.createElement('img');
         img.classList.add("img_photographe");
         img.setAttribute("src", picture);
         img.setAttribute("alt", `portrait du photographe ${name}`);
 
+        
 
         article.appendChild(container_photo);
         container_photo.appendChild(infosphotographe);
@@ -54,26 +50,40 @@ function PhotographerFactoryDetail(data) {
         container_photo.appendChild(divPortrait);
         divPortrait.appendChild(img);
 
-        
 
-        //pop
-        const prix = document.createElement("p");
-        prix.classList.add("prix")
-        prix.textContent = price +"€/jour";
-       
+    
+    const infoPrixAvis = document.createElement("aside");
+    infoPrixAvis.classList.add("infoPrixAvis");
+    const priceDOM = document.createElement("div");
+    priceDOM.classList.add("artistePrice");
+    priceDOM.textContent = `${price} € / jour`;
 
-        return article;
+    infoPrixAvis.appendChild(priceDOM);
+    main.appendChild(infoPrixAvis);
+    
+        return article; 
     }
+
     return { name, picture, getUserCardDOM }
+  
 };
 
-function mediaPhotographerFactory(PhotographerName,media) {
+
+function mediaPhotographerFactory(media) { 
+    
     const {id, photographerId, title, image, likes, date, price, video} = media;
-    const mediaphotographer = `./assets/images/${PhotographerName}/${image}`;
-   // const videophotographer =  `./assets/images/${PhotographerName}/${video}`;
-    //console.log(videophotographer);
+    const mediaphotographer = `./assets/images/${image} `;
+    const videophotographer =  `./assets/images/${video}`;
+    const likesphotographer = parseInt(`${likes}`);
+   
+
     function getUserCardMedia(){
+        
         const photographerMediaSection = document.querySelector(".photographermedia_section")
+        const mediaLink = document.createElement("a");
+        mediaLink.classList.add("media-link");
+        mediaLink.href = '#'
+        mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
         const articleMedia = document.createElement('article')
         articleMedia.classList.add('article_media')
         const divMedia = document.createElement('div')
@@ -88,32 +98,41 @@ function mediaPhotographerFactory(PhotographerName,media) {
         nbLikePhoto.classList.add('like')
         nbLikePhoto.innerHTML = `${likes} &#10084;`
 
-
-
-        const img = document.createElement('img');
-        img.setAttribute("src", mediaphotographer);
-        img.classList.add("photo")
-
-        // const video = document.createElement("video");
-        // video.classList.add("photo")
-        // video.setAttribute("src",videophotographer )
-
-        photographerMediaSection.appendChild(articleMedia);
-        articleMedia.appendChild(divMedia);
-        divMedia.appendChild(img);
-        // divMedia.appendChild(video);
+            if(image){
+                    const img = document.createElement('img');
+                    img.setAttribute("src", mediaphotographer);
+                    img.setAttribute("alt", title)
+                    img.classList.add("photo");
+                    articleMedia.appendChild(img);
+                }
+            if(video){
+                    const video = document.createElement("video");
+                    video.classList.add("photo")
+                    video.setAttribute("src",videophotographer )
+                    video.setAttribute("alt", title)
+                    divMedia.appendChild(video);
+                }  
+                    photographerMediaSection.appendChild(mediaLink);
+                    articleMedia.appendChild(divMedia);
+    
+        mediaLink.appendChild(articleMedia);
         articleMedia.appendChild(infoPhoto);
         infoPhoto.appendChild(titlePhoto);
         infoPhoto.appendChild(nbLikePhoto);
-      
+        
     }
-   
 
-    function getUserCardMediaVideo(){
-
-      
-    }
-    return { id, photographerId,  getUserCardMedia, getUserCardMediaVideo }
-
-
+    return { id, photographerId, getUserCardMedia }
 };
+
+function countLikes(totalLikes) {
+    
+    //console.log(totalLikes); 
+    const likesDOM = document.createElement("div");
+    likesDOM.classList.add("TotalLikes");
+    likesDOM.textContent = `${totalLikes} ❤`;
+    let displayLike = document.querySelector('.infoPrixAvis')
+    displayLike.appendChild(likesDOM);
+}
+
+

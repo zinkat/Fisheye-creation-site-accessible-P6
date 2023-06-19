@@ -4,8 +4,6 @@ function PhotographerFactoryDetail(data) {
     //console.log(name);
     const picture = `./assets/photographers/${portrait}`
     
-    
-    
 
     function getUserCardDOM() {
         const article = document.querySelector('.photograph_infos' );
@@ -74,7 +72,7 @@ function mediaPhotographerFactory(media) {
     const {id, photographerId, title, image, likes, date, price, video} = media;
     const mediaphotographer = `./assets/images/${image} `;
     const videophotographer =  `./assets/images/${video}`;
-    const likesphotographer = parseInt(`${likes}`);
+    //const likesphotographer = parseInt(`${likes}`);
    
 
     function getUserCardMedia(){
@@ -94,31 +92,39 @@ function mediaPhotographerFactory(media) {
         const titlePhoto = document.createElement('h3');
         titlePhoto.classList.add('titlePhoto');
         titlePhoto.textContent = `${title}`;
-        const nbLikePhoto = document.createElement('p')
+        const nbLikePhoto = document.createElement('div')
         nbLikePhoto.classList.add('like')
-        nbLikePhoto.innerHTML = `${likes} &#10084;`
+        const heart = document.createElement('span')
+        heart.classList.add('heart')
+        heart.textContent = '❤'
+        nbLikePhoto.innerHTML = `${likes} `
 
             if(image){
                     const img = document.createElement('img');
                     img.setAttribute("src", mediaphotographer);
                     img.setAttribute("alt", title)
                     img.classList.add("photo");
-                    articleMedia.appendChild(img);
+                    divMedia.appendChild(mediaLink);
+                    mediaLink.appendChild(img);
                 }
             if(video){
                     const video = document.createElement("video");
                     video.classList.add("photo")
                     video.setAttribute("src",videophotographer )
+                    video.setAttribute("preload", "metadata");
+                    video.autoplay = true
                     video.setAttribute("alt", title)
-                    divMedia.appendChild(video);
+                    divMedia.appendChild(mediaLink);
+                    mediaLink.appendChild(video);
                 }  
-                    photographerMediaSection.appendChild(mediaLink);
+                    photographerMediaSection.appendChild(articleMedia);
                     articleMedia.appendChild(divMedia);
     
-        mediaLink.appendChild(articleMedia);
+        //mediaLink.appendChild(articleMedia);
         articleMedia.appendChild(infoPhoto);
         infoPhoto.appendChild(titlePhoto);
-        infoPhoto.appendChild(nbLikePhoto);
+        infoPhoto.appendChild(nbLikePhoto)
+        infoPhoto.appendChild(heart);
         
     }
 
@@ -128,11 +134,19 @@ function mediaPhotographerFactory(media) {
 function countLikes(totalLikes) {
     
     //console.log(totalLikes); 
+
+    const iconHeart = document.createElement("span")
+    iconHeart.classList.add("iconHeart");
     const likesDOM = document.createElement("div");
     likesDOM.classList.add("TotalLikes");
-    likesDOM.textContent = `${totalLikes} ❤`;
+    iconHeart.textContent = ' ❤'
+    likesDOM.textContent = `${totalLikes}`;
+
     let displayLike = document.querySelector('.infoPrixAvis')
+    displayLike.appendChild(iconHeart)
     displayLike.appendChild(likesDOM);
+
 }
 
 
+    

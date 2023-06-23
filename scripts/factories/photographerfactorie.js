@@ -6,6 +6,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         article.classList.add("card_photographer");
+     
 
         const container_photo = document.createElement("figure");
         container_photo.classList.add("container_photo")

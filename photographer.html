@@ -15,7 +15,7 @@
         </a>
       </header>
       
-      <main id="main">
+      <main id="main" aria-hidden="false">
         <section class="photograph-header">
           <article class="photograph_infos">
           </article>
@@ -23,14 +23,15 @@
         </section>
         <div id="select">
           <label for="orderSelect">Trier par</label>
-          <select name="orderSelect" id="orderSelect" >
+          <select name="orderSelect" id="orderSelect" class="orderSelect">
+            <option disabled selected>Trier</option>
             <option value="populaire">Popularité</option>
             <option value="date">Date</option>
             <option value="title">Titre</option>
           </select>
         </div>
         <section class="photograph_medias"></section> 
-        <section class="photographermedia_section"></section>
+        <section class="photographermedia_section"></section> 
      
       </main>
       <footer>
@@ -44,7 +45,7 @@
           <form  name="message" class="form">
             <div class="formData">
               <label class="text-label" for="first">Prénom</label>
-              <input class="text-control" type="text" id="first"  name="first" minlength="2" />  
+              <input class="text-control" type="text" id="first"  name="first" />  
                <p class="msgError"></p>
             </div>
             <div class="formData">
@@ -66,9 +67,18 @@
           </form>
         </div>
       </div>
+      <div id="lightbox">
+        <div class="content">
+          <img role="button" src="./assets/icons/close-24px 1.png" alt="close modal" class="closeLight" />
+          <button class="previous"> &lt; </button>
+         <figure class="photoBox"><img class="picture"></figure> 
+          <!-- <video class="picture"></video> -->
+          <button class="next"> &gt; </button>
+        </div>
       </div>
       <script src="./scripts/pages/photographer.js" ></script>
       <script src="./scripts/factories/mediafactorie.js"></script>
       <script src="./scripts/utils/contactForm.js" ></script>
+      <script src="./scripts/utils/LightBox.js" ></script>
     </body>
 </html>

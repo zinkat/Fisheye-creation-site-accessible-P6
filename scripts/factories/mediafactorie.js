@@ -74,18 +74,19 @@ function mediaPhotographerFactory(media) {
     const videophotographer =  `./assets/images/${video}`;
     //const likesphotographer = parseInt(`${likes}`);
    
-
+  
     function getUserCardMedia(){
         
         const photographerMediaSection = document.querySelector(".photographermedia_section")
         const mediaLink = document.createElement("a");
         mediaLink.classList.add("media-link");
-        mediaLink.href = '#'
         mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
         const articleMedia = document.createElement('article')
         articleMedia.classList.add('article_media')
         const divMedia = document.createElement('div')
         divMedia.classList.add('div_media')
+        divMedia.setAttribute('data-id',`${this.id}`);
+        divMedia.setAttribute('data-image',`${mediaphotographer}`);
         const infoPhoto = document.createElement('div')
         infoPhoto.classList.add('infoPhoto')
         
@@ -97,10 +98,12 @@ function mediaPhotographerFactory(media) {
         const heart = document.createElement('span')
         heart.classList.add('heart')
         heart.textContent = '❤'
+        
         nbLikePhoto.innerHTML = `${likes} `
 
             if(image){
                     const img = document.createElement('img');
+                    mediaLink.href = `#`
                     img.setAttribute("src", mediaphotographer);
                     img.setAttribute("alt", title)
                     img.classList.add("photo");
@@ -109,10 +112,11 @@ function mediaPhotographerFactory(media) {
                 }
             if(video){
                     const video = document.createElement("video");
+                    mediaLink.href = "#"
                     video.classList.add("photo")
                     video.setAttribute("src",videophotographer )
+                    video.controls = true
                     video.setAttribute("preload", "metadata");
-                    video.autoplay = true
                     video.setAttribute("alt", title)
                     divMedia.appendChild(mediaLink);
                     mediaLink.appendChild(video);
@@ -126,9 +130,11 @@ function mediaPhotographerFactory(media) {
         infoPhoto.appendChild(nbLikePhoto)
         infoPhoto.appendChild(heart);
         
+ 
     }
 
     return { id, photographerId, getUserCardMedia }
+    
 };
 
 function countLikes(totalLikes) {
@@ -147,6 +153,3 @@ function countLikes(totalLikes) {
     displayLike.appendChild(likesDOM);
 
 }
-
-
-    

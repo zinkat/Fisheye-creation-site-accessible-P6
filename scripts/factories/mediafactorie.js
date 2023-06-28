@@ -15,17 +15,25 @@ function PhotographerFactoryDetail(data) {
         const container_photo = document.createElement("figure");
         container_photo.classList.add("container_photo")
         const infosphotographe = document.createElement("figcaption");
+        infosphotographe.setAttribute("aria-label", "information du photographe")
         infosphotographe.classList.add("infosphotographe");
        
-        const photographerName = document.createElement('h2');
+        const photographerName = document.createElement('h1');
         photographerName.classList.add("photographerName");
+        photographerName.setAttribute("aria-label", name)
+        photographerName.setAttribute("title", "photographe")
+        photographerName.setAttribute("tabindex", "0")
         photographerName.textContent = name;
 
         const photographerCity = document.createElement('address');
+        photographerCity.setAttribute("aria-label", "Localisation géographique" + city+ "," +country)
+        photographerCity.setAttribute("tabindex", "0")
         photographerCity.classList.add("photographerCity")
         photographerCity.textContent = city + ", " +country;
-
+      
         const slogan = document.createElement("p");
+        slogan.setAttribute("aria-label", "slogan du photographe" + tagline)
+        slogan.setAttribute("tabindex", "0")
         slogan.classList.add("slogan")
         slogan.textContent = tagline;
 
@@ -34,6 +42,7 @@ function PhotographerFactoryDetail(data) {
         
         const img = document.createElement('img');
         img.classList.add("img_photographe");
+        img.setAttribute("tabindex", "0")
         img.setAttribute("src", picture);
         img.setAttribute("alt", `portrait du photographe ${name}`);
 
@@ -55,7 +64,6 @@ function PhotographerFactoryDetail(data) {
     const priceDOM = document.createElement("div");
     priceDOM.classList.add("artistePrice");
     priceDOM.textContent = `${price} € / jour`;
-
     infoPrixAvis.appendChild(priceDOM);
     main.appendChild(infoPrixAvis);
     
@@ -80,13 +88,15 @@ function mediaPhotographerFactory(media) {
         const photographerMediaSection = document.querySelector(".photographermedia_section")
         const mediaLink = document.createElement("a");
         mediaLink.classList.add("media-link");
-        mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
+        // mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
+        mediaLink.setAttribute("tabindex", `1`);
         const articleMedia = document.createElement('article')
         articleMedia.classList.add('article_media')
         const divMedia = document.createElement('div')
         divMedia.classList.add('div_media')
         divMedia.setAttribute('data-id',`${this.id}`);
-        divMedia.setAttribute('data-image',`${mediaphotographer}`);
+       // divMedia.setAttribute('data-image',`${mediaphotographer}`);
+        //divMedia.setAttribute('data-video',`${videophotographer}`);
         const infoPhoto = document.createElement('div')
         infoPhoto.classList.add('infoPhoto')
         
@@ -97,6 +107,9 @@ function mediaPhotographerFactory(media) {
         nbLikePhoto.classList.add('like')
         const heart = document.createElement('span')
         heart.classList.add('heart')
+        heart.setAttribute("role", "button")
+        heart.setAttribute("aria-label", "cliquez pour aimer")
+        heart.setAttribute("tabindex", "0")
         heart.textContent = '❤'
         
         nbLikePhoto.innerHTML = `${likes} `
@@ -105,7 +118,10 @@ function mediaPhotographerFactory(media) {
                     const img = document.createElement('img');
                     mediaLink.href = `#`
                     img.setAttribute("src", mediaphotographer);
-                    img.setAttribute("alt", title)
+                    img.setAttribute("alt", title + ". Cliquez pour agrandir la Photo. vue rapprochée")
+                    img.setAttribute("title", title)
+                    img.setAttribute("tabindex", 0)
+                    img.setAttribute("role", "link")
                     img.classList.add("photo");
                     divMedia.appendChild(mediaLink);
                     mediaLink.appendChild(img);
@@ -117,7 +133,10 @@ function mediaPhotographerFactory(media) {
                     video.setAttribute("src",videophotographer )
                     video.controls = true
                     video.setAttribute("preload", "metadata");
-                    video.setAttribute("alt", title)
+                    video.setAttribute("alt", title + ". Cliquez pour agrandir la video. vue rapprochée")
+                    video.setAttribute("title", title)
+                    video.setAttribute("role", "link")
+                    video.setAttribute("tabindex", 0)
                     divMedia.appendChild(mediaLink);
                     mediaLink.appendChild(video);
                 }  
@@ -129,8 +148,8 @@ function mediaPhotographerFactory(media) {
         infoPhoto.appendChild(titlePhoto);
         infoPhoto.appendChild(nbLikePhoto)
         infoPhoto.appendChild(heart);
-        
- 
+
+    
     }
 
     return { id, photographerId, getUserCardMedia }

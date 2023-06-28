@@ -1,5 +1,5 @@
 class LightBox {
-    constructor(listElement){
+    constructor(listElement, image){
         this.currentElement = null;
         this.listElement = listElement;
         this.manageEvent();
@@ -13,6 +13,10 @@ class LightBox {
             if (this.listElement[i].id === parseInt(id)){
                 this.currentElement = this.getElementById(id);
                 this.display(this.listElement[i].image); 
+
+            }else if (this.listElement[i].id=== parseInt(id)){
+                this.currentElement = this.getElementById(id);
+                this.display(this.listElement[i].video); 
             }
        
         }
@@ -57,6 +61,7 @@ class LightBox {
         document.querySelector("#lightbox .next").addEventListener("click", () => {
             this.next();
         })
+
         document.querySelector("#lightbox .previous").addEventListener("click", () => {
             this.previous();
     
@@ -67,11 +72,11 @@ class LightBox {
     
         })
 
-        document.querySelector("#lightbox").addEventListener("click", (e) => {
-            if(e.target == e.currentTarget)
-            this.close();
+        // document.querySelector("#lightbox").addEventListener("click", (e) => {
+        //     if(e.target == e.currentTarget)
+        //     this.close();
     
-        })
+        // })
 
         document.querySelector("#lightbox").addEventListener("keyup",(event) => {
 
@@ -95,10 +100,35 @@ class LightBox {
        return this.listElement.find(element=> element.id == id);
    }
 
-   display(image){ 
-   const mediaphotographer = `./assets/images/${image}` ?? `./assets/images/${video}`;
-   const cardBox = document.querySelector(".picture")
-   cardBox.setAttribute("src", mediaphotographer)
+   display(image, video){
+ 
+   const mediaphotographer = `./assets/images/${image}`
+   const videophotographer =  `./assets/images/${video}`;
+if(image){  
+    const cardBox = document.querySelector(".picture")
+    cardBox.setAttribute("src", mediaphotographer)
+    cardBox.setAttribute("type", "image/jpg")
+
+}
+if(video){
+    const cardBoxV = document.querySelector(".mp4")
+    cardBoxV.setAttribute("src", videophotographer)
+    cardBoxV.setAttribute("type","video/mp4")
+    
+}
+
+// ////////recuperation nom de media sur la lightBox
+//         const  TitreMed=  document.querySelectorAll(".TitreMed")
+//         let nameMedia = title;
+//         //console.log(nameMedia);
+//         TitreMed.forEach((med)=> {
+//         if (med.photographerId == id){
+//             med.textContent= nameMedia   
+//         }
+  
+//         })
+
+
     document.querySelector("#lightbox").classList.add("show");
    }
    

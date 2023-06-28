@@ -8,8 +8,8 @@
 
 .photograph-header .container_photo{
 	height: 300px;
-	margin: 0 100px;
-	padding: 0 75px;
+	margin: 0 50px;
+	padding: 0 50px;
 	background-color: #fafafa;
 
 }
@@ -28,7 +28,7 @@
 	flex-direction: column;
 }
 
-.infosphotographe > h2 {
+.infosphotographe > h1 {
 	color: #D3573C;
 	font-size: 3em;
 	margin: 0.5em 0;
@@ -36,12 +36,18 @@
 
 .photographerCity {
 	color: #901c1c;
-	font-size: 1.2em;
-    font-weight: 600;
     text-transform: capitalize;
     font-style: normal;
+	margin-bottom: 0.5em;
+	font-size: 1.5rem;
+    line-height: 1.7rem;
+    font-weight: 500;
 }
 
+.slogan {
+    color: #000000;
+    font-size: 1.2rem;   
+}
 
 .photograph-header img {
 	width: 200px;
@@ -73,7 +79,32 @@
 	background-color: #DB8876;
 	color: #000000;
 }
+
+@media (max-width: 900px) { 
+	.photograph-header{
+		display: flex;
+		justify-content:center;
+		width: 85%;
+	}
+	.photograph_infos .container_photo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column-reverse;
+		width: 100%;
+		height: 100%;
+		padding: 50px;
+	}
+
+	.photographer_section {
+		display: grid;
+
+	}
+ }
 /* ******** */
+#main{
+	display: block;
+}
 .photographermedia_section{
 display: flex;
 flex-wrap: wrap;
@@ -89,7 +120,7 @@ padding: 30px 50px 50px 50px;
 
 
 .article_media {
-width: 300px;
+width: 400px;
 height:400px;
 background-color: #fafafa;
 margin: 20px;
@@ -111,7 +142,7 @@ background-color: white;
 .photo {
 width: 100%;
 height: 100%;
-max-width : 300px;
+max-width : 400px;
 min-height : 356px;
 object-fit: cover;
 object-position: center;
@@ -130,8 +161,8 @@ background-color: white;
 }
 
 .titlePhoto{
-font-size: 16px;
-font-weight: bold;
+font-size: 20px ;
+font-weight: 400;
 color: #901c1c;
 padding-left:  5px ;
 width: 60%;
@@ -161,9 +192,6 @@ cursor: pointer;
 
 /***modal form***/
 
-.no-scroll {
-	overflow: hidden;
- }
 #contact_modal {
 display: none;
 position: fixed;
@@ -173,6 +201,7 @@ top: 0px;
 left: 0;
 width: 100%;
 height: 100%;
+overflow: auto;
 z-index: 1;
 background-color: rgba(0, 0, 0, 0.5);
 }
@@ -326,8 +355,8 @@ font-weight: bold;
 
 
 #orderSelect{
-	height: 50px;
-	width: 150px;
+	height: 60px;
+	width: 170px;
 	padding: 0 10px;
 	background-color: #901c1c;
 	border-radius: 5px;
@@ -337,8 +366,8 @@ font-weight: bold;
 
 }
 select:focus > option:checked { 
-    background:  #db8876 !important;
-
+    background: #901c1c !important;
+	color: #901c1c !important;
 }
   /* ************************** */
 

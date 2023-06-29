@@ -80,6 +80,7 @@ function mediaPhotographerFactory(media) {
     const {id, photographerId, title, image, likes, date, price, video} = media;
     const mediaphotographer = `./assets/images/${image} `;
     const videophotographer =  `./assets/images/${video}`;
+    //console.log(mediaphotographer);
     //const likesphotographer = parseInt(`${likes}`);
    
   
@@ -100,7 +101,7 @@ function mediaPhotographerFactory(media) {
         const infoPhoto = document.createElement('div')
         infoPhoto.classList.add('infoPhoto')
         
-        const titlePhoto = document.createElement('h3');
+        const titlePhoto = document.createElement('h2');
         titlePhoto.classList.add('titlePhoto');
         titlePhoto.textContent = `${title}`;
         const nbLikePhoto = document.createElement('div')
@@ -113,7 +114,7 @@ function mediaPhotographerFactory(media) {
         heart.textContent = '❤'
         
         nbLikePhoto.innerHTML = `${likes} `
-
+console.log(image);
             if(image){
                     const img = document.createElement('img');
                     mediaLink.href = `#`
@@ -149,7 +150,8 @@ function mediaPhotographerFactory(media) {
         infoPhoto.appendChild(nbLikePhoto)
         infoPhoto.appendChild(heart);
 
-    
+   
+
     }
 
     return { id, photographerId, getUserCardMedia }

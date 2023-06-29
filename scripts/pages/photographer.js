@@ -176,7 +176,8 @@ async function init() {
     ////////////////*************light Box************///////////
     document.querySelectorAll(".div_media").forEach( lightBoxCard => {
       lightBoxCard.addEventListener("click", (e) =>{
-        
+        const bodyPhotographer = document.getElementById("main");
+        bodyPhotographer.style.display = "none";
         const lightBxMedia = Array.from(media)
      
         //list media par photgrapher
@@ -200,6 +201,8 @@ async function init() {
           lightBoxCard.addEventListener("keydown", (e) =>{
            if(e.key === "Enter"){
             const lightBxMedia = Array.from(media)
+            const bodyPhotographer = document.getElementById("main");
+            bodyPhotographer.style.display = "none";
          
             //list media par photgrapher
             let MediaPhtgr =[];

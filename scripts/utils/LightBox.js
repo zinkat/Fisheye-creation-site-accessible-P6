@@ -1,26 +1,17 @@
 class LightBox {
-    constructor(listElement, image){
+    constructor(listElement){
         this.currentElement = null;
         this.listElement = listElement;
         this.manageEvent();
     }
 
-    
     show(id) {
-    
         for (let i=0; i<this.listElement.length; i++){
-            //console.log(this.listElement[i].id);
             if (this.listElement[i].id === parseInt(id)){
                 this.currentElement = this.getElementById(id);
-                this.display(this.listElement[i].image); 
-
-            }else if (this.listElement[i].id=== parseInt(id)){
-                this.currentElement = this.getElementById(id);
-                this.display(this.listElement[i].video); 
-            }
-       
-        }
-        
+                this.display(this.listElement[i])
+            }  
+        }    
     }
 
     next() {
@@ -37,7 +28,7 @@ class LightBox {
             this.currentElement = this.listElement[index + 1 ];
          }
 
-     this.display(this.currentElement.image);
+     this.display(this.currentElement);
     }
 
 
@@ -53,7 +44,7 @@ class LightBox {
                 this.currentElement = this.listElement[index - 1 ];
             }
      
-     this.display(this.currentElement.image);
+     this.display(this.currentElement);
     }
 
     manageEvent() {
@@ -71,6 +62,12 @@ class LightBox {
             this.close();
     
         })
+
+        document.querySelector("#lightbox").addEventListener("keydown", (e) => {
+            if(e.key === "Escape" ){
+                this.close();
+            }
+        });
 
         // document.querySelector("#lightbox").addEventListener("click", (e) => {
         //     if(e.target == e.currentTarget)
@@ -100,40 +97,45 @@ class LightBox {
        return this.listElement.find(element=> element.id == id);
    }
 
-   display(image, video){
- 
-   const mediaphotographer = `./assets/images/${image}`
-   const videophotographer =  `./assets/images/${video}`;
-if(image){  
-    const cardBox = document.querySelector(".picture")
-    cardBox.setAttribute("src", mediaphotographer)
-    cardBox.setAttribute("type", "image/jpg")
+   display(boxmedia){
+    // console.log(boxmedia.image);
+    // console.log(boxmedia.title);
+             
+    let actualImage = boxmedia.image;
+    let actualVideo = boxmedia.video;
+    let actualTitle = boxmedia.title;
 
-}
-if(video){
-    const cardBoxV = document.querySelector(".mp4")
-    cardBoxV.setAttribute("src", videophotographer)
-    cardBoxV.setAttribute("type","video/mp4")
-    
-}
+    if(typeof actualImage !== 'undefined'){
 
-// ////////recuperation nom de media sur la lightBox
-//         const  TitreMed=  document.querySelectorAll(".TitreMed")
-//         let nameMedia = title;
-//         //console.log(nameMedia);
-//         TitreMed.forEach((med)=> {
-//         if (med.photographerId == id){
-//             med.textContent= nameMedia   
-//         }
-  
-//         })
+        document.querySelector(".picture").style.display = "block"
+        document.querySelector(".mp4").style.display = "none";
+        document.querySelector(".TitreMed").textContent = actualTitle
+        const mediaphotographer = `./assets/images/${boxmedia.image}`
+        const cardBox = document.querySelector(".picture")
+        cardBox.setAttribute("src", mediaphotographer)
+      
+    }
+    if(typeof actualVideo !== 'undefined'){
+        document.querySelector(".picture").style.display = "none"
+        document.querySelector(".mp4").style.display = "block"
+        document.querySelector(".TitreMed").textContent = actualTitle
+        const mediaphotographerV = `./assets/images/${boxmedia.video}`
+        const cardBoxV = document.querySelector(".mp4")
+        cardBoxV.controls = true;
+        cardBoxV.setAttribute("preload", "metadata");
+        cardBoxV.setAttribute("alt", actualTitle)
+        cardBoxV.setAttribute("src", mediaphotographerV)
 
+    }
 
     document.querySelector("#lightbox").classList.add("show");
    }
-   
+
    close(){
     document.querySelector("#lightbox").classList.remove("show");
+    const bodyPhotographer = document.getElementById("main");
+    bodyPhotographer.style.display = "block";
+
    }
 
 }

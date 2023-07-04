@@ -8,19 +8,19 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <body>
-      <header>
+      <header class="header">
         <a href="./index.html">
-          <img src="./assets/images/logo.png" alt="Fisheye Home Page" class="logo" />
+          <img src="./assets/images/logo.png" alt="Fisheye retour page principale   " class="logo" />
         </a>
       </header>
-      
+       <!--section info photographe -->
       <main id="main" aria-hidden="false">
-        <section class="photograph-header" aria-label="Information Photographer" role="information" tabindex="0">
+        <section class="photograph-header" aria-label="Information Photographer" tabindex="0">
           <article class="photograph_infos" >
           </article>
           <button aria-label="Contactez-moi" class="contact_button" >Contactez-moi</button>
         </section>
+         <!-- select container -->
         <div id="select">
           <label for="orderSelect" aria-label="liste filtrante">Trier par</label>
           <select name="orderSelect" id="orderSelect" aria-label="filtrer par" class="orderSelect"  tabindex="0">
@@ -33,26 +33,28 @@
         <section class="photograph_medias"></section> 
         <section class="photographermedia_section"></section> 
       </main>
-      <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modal-contact">
-        <div class="modal" aria-label="modale de contact" id="focus" tabindex="0">
+
+       <!-- formulaire de contact -->
+      <div id="contact_modal" role="dialog" aria-hidden="true" tabindex="0">
+        <div class="modal" aria-label="modale de contact" id="focus" >
           <header>
             <h2>Contactez-moi <br><span id="modalTitle"></span></h2>
-            <img role="button" src="./assets/icons/close.svg" alt="close modal" class="close" tabindex="0" />
+            <img role="button" src="./assets/icons/close.svg" alt="close modal" aria-label="fermer le formulaire" class="close" tabindex="0" />
           </header>
           <form  name="message" class="form">
             <div class="formData">
               <label class="text-label" aria-label="entrer votre prénom"  for="first">Prénom</label>
-              <input class="text-control" type="text" id="first"  name="first" />  
+              <input class="text-control" type="text" id="first" required name="first" />  
                <p class="msgError"></p>
             </div>
             <div class="formData">
               <label class="text-label"  aria-label="entrer votre nom" for="last">Nom</label>
-              <input  class="text-control" type="text"   id="last"  name="last" minlength="2"/>
+              <input  class="text-control" type="text"   id="last" required  name="last" minlength="2"/>
               <p class="msgError"></p>
             </div>
             <div class="formData" >
               <label class="text-label"aria-label="entrer votre email" for="email">E-mail</label>
-              <input class="text-control" type="email" id="email" name="email"/>
+              <input class="text-control" type="email" id="email" required name="email"/>
               <p class="msgError"></p>
             </div>
             <div class="formData" >
@@ -60,26 +62,26 @@
               <textarea role="textbox" id="txtMsg" class="text-control"  name="txtMsg" minlength="10"  maxlength="200"></textarea>
               <p class="msgError"></p> 
             </div>
-            <button class="submit_button"  aria-label="Envoyer" aria-label="envoyer formulaire">Envoyer</button>
+            <button class="submit_button" aria-label="envoyer formulaire">Envoyer</button>
           </form>
         </div>
       </div>
-      <div id="lightbox" role="dialog" aria-hidden="true" aria-describedby="vue agrandie de l'image" tabindex="0">
-        <div class="content">
-          <img role="button" src="./assets/icons/close-24px 1.png" alt="close modal" tabindex="0" aria-label="fermer médias lightbox" class="closeLight" />
-          <button class="previous" aria-label="photo précédente"> &lt; </button>
-         <figure class="photoBox" aria-label="photo suivante">
-          <video class="mp4" type="video/mp4"></video>
-            <img class="picture"> 
-          
-            <h3 class="TitreMed" tabindex="0"></h3>
-        </figure> 
-          <button class="next"> &gt; </button>
+      <!-- lightbox -->
+      <dialog id="lightbox" aria-hidden="true" >
+        <div class="content" aria-label="vue rapprochée" tabindex="0" >
+          <img role="button" src="./assets/icons/close-24px 1.png" tabindex="0"  alt="close modal" aria-label="fermer médias lightbox" class="closeLight" />
+          <button class="previous" tabindex="0"  aria-label="photo précédente" > &lt; </button>
+          <figure class="photoBox">
+          <video class="mp4" type="video/mp4"  tabindex="0" aria-label="vue rapprochée"></video>
+          <img alt="#" class="picture" type="image/jpg" aria-label="vue rapprochée" tabindex="0"> 
+          <p class="TitreMed"> </p>            
+         </figure> 
+          <button class="next" tabindex="0"   aria-label="photo suivante"> &gt; </button>
         </div>
-      </div>
+      </dialog>
       <script src="./scripts/pages/photographer.js" ></script>
       <script src="./scripts/factories/mediafactorie.js"></script>
       <script src="./scripts/utils/contactForm.js" ></script>
       <script src="./scripts/utils/LightBox.js" ></script>
-    </body>
+    </boy>
 </html>

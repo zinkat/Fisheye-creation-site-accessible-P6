@@ -15,18 +15,19 @@ function PhotographerFactoryDetail(data) {
         const container_photo = document.createElement("figure");
         container_photo.classList.add("container_photo")
         const infosphotographe = document.createElement("figcaption");
+            
         infosphotographe.setAttribute("aria-label", "information du photographe")
         infosphotographe.classList.add("infosphotographe");
        
         const photographerName = document.createElement('h1');
         photographerName.classList.add("photographerName");
         photographerName.setAttribute("aria-label", name)
-        photographerName.setAttribute("title", "photographe")
+        // photographerName.setAttribute("title", "photographe")
         photographerName.setAttribute("tabindex", "0")
         photographerName.textContent = name;
 
         const photographerCity = document.createElement('address');
-        photographerCity.setAttribute("aria-label", "Localisation géographique" + city+ "," +country)
+        photographerCity.setAttribute("aria-label", "Localisation géographique")
         photographerCity.setAttribute("tabindex", "0")
         photographerCity.classList.add("photographerCity")
         photographerCity.textContent = city + ", " +country;
@@ -89,8 +90,8 @@ function mediaPhotographerFactory(media) {
         const photographerMediaSection = document.querySelector(".photographermedia_section")
         const mediaLink = document.createElement("a");
         mediaLink.classList.add("media-link");
-        // mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
-        mediaLink.setAttribute("tabindex", `1`);
+        mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
+        //mediaLink.setAttribute("tabindex", `1`);
         const articleMedia = document.createElement('article')
         articleMedia.classList.add('article_media')
         const divMedia = document.createElement('div')
@@ -114,12 +115,12 @@ function mediaPhotographerFactory(media) {
         heart.textContent = '❤'
         
         nbLikePhoto.innerHTML = `${likes} `
-console.log(image);
+       //console.log(image);
             if(image){
                     const img = document.createElement('img');
-                    mediaLink.href = `#`
+                   // mediaLink.href = `#`
                     img.setAttribute("src", mediaphotographer);
-                    img.setAttribute("alt", title + ". Cliquez pour agrandir la Photo. vue rapprochée")
+                    img.setAttribute("alt", title + ". Cliquez pour agrandir la Photo.")
                     img.setAttribute("title", title)
                     img.setAttribute("tabindex", 0)
                     img.setAttribute("role", "link")
@@ -129,12 +130,12 @@ console.log(image);
                 }
             if(video){
                     const video = document.createElement("video");
-                    mediaLink.href = "#"
+                  //  mediaLink.href = "#"
                     video.classList.add("photo")
                     video.setAttribute("src",videophotographer )
                     video.controls = true
                     video.setAttribute("preload", "metadata");
-                    video.setAttribute("alt", title + ". Cliquez pour agrandir la video. vue rapprochée")
+                    video.setAttribute("alt", title + ". Cliquez pour agrandir la video.")
                     video.setAttribute("title", title)
                     video.setAttribute("role", "link")
                     video.setAttribute("tabindex", 0)

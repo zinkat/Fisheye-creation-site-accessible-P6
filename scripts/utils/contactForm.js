@@ -21,12 +21,12 @@ function addFocus() {
     form.focus();
     firstName.tabIndex=0;
     document.querySelectorAll(".photo").forEach((elt)=>{
-      elt.tabIndex=1;
+      elt.tabIndex= 1;
    
     });
 
     document.querySelectorAll(".heart").forEach((elt)=>{
-      elt.tabIndex=1;
+      elt.tabIndex= 1;
     });
 
     document.querySelector(".img_photographe").tabIndex = 1;
@@ -35,7 +35,7 @@ function addFocus() {
   
 function removeFocus() {
     modal.blur();
-    firstName.tabIndex=1;
+    firstName.tabIndex= 1;
     document.querySelectorAll(".photo").forEach((elt)=>{
         elt.tabIndex=0;
     });

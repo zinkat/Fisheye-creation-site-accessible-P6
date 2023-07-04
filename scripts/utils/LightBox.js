@@ -80,9 +80,9 @@ class LightBox {
             switch (event.key){
                 case "ArrowRight":
                      this.next();
-                     break;
+                     break;     
 
-                case "ArrowLeft":
+                    case "ArrowLeft":
                     this.previous();
                     break;
 
@@ -104,38 +104,45 @@ class LightBox {
     let actualImage = boxmedia.image;
     let actualVideo = boxmedia.video;
     let actualTitle = boxmedia.title;
+    document.querySelector(".TitreMed").textContent = actualTitle
+    document.querySelector(".TitreMed").setAttribute("title", actualTitle)
+    // const nextBtn = document.querySelector(".next");
+    // nextBtn.setAttribute("aria-label", "photo suivante");
+    // nextBtn.setAttribute("tabindex", "0");
 
     if(typeof actualImage !== 'undefined'){
 
         document.querySelector(".picture").style.display = "block"
         document.querySelector(".mp4").style.display = "none";
-        document.querySelector(".TitreMed").textContent = actualTitle
-        const mediaphotographer = `./assets/images/${boxmedia.image}`
+        const mediaphotographer = `./assets/images/${boxmedia.image}`   
         const cardBox = document.querySelector(".picture")
+        cardBox.setAttribute("alt", actualTitle)
         cardBox.setAttribute("src", mediaphotographer)
+        cardBox.setAttribute("aria-label", `vue en pleine ecran ${actualTitle}` )
       
     }
     if(typeof actualVideo !== 'undefined'){
         document.querySelector(".picture").style.display = "none"
         document.querySelector(".mp4").style.display = "block"
-        document.querySelector(".TitreMed").textContent = actualTitle
         const mediaphotographerV = `./assets/images/${boxmedia.video}`
         const cardBoxV = document.querySelector(".mp4")
         cardBoxV.controls = true;
         cardBoxV.setAttribute("preload", "metadata");
-        cardBoxV.setAttribute("alt", actualTitle)
         cardBoxV.setAttribute("src", mediaphotographerV)
+        cardBoxV.setAttribute("aria-label", `vue en pleine ecran ${actualTitle}` )
 
     }
 
-    document.querySelector("#lightbox").classList.add("show");
-   }
+    document.querySelector("#lightbox").classList.add("show");              
+   }                                            
 
    close(){
     document.querySelector("#lightbox").classList.remove("show");
     const bodyPhotographer = document.getElementById("main");
     bodyPhotographer.style.display = "block";
-
+    bodyPhotographer.setAttribute("aria-hidden", "false");
+    document.querySelector(".header").style.display ="block";
+    document.querySelector(".photograph-header").setAttribute("tabindex", "0");
    }
 
 }

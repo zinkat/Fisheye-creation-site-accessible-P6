@@ -3,6 +3,9 @@
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Page photographe professionnel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
@@ -43,17 +46,17 @@
           </header>
           <form  name="message" class="form">
             <div class="formData">
-              <label class="text-label" aria-label="entrer votre prénom"  for="first">Prénom</label>
+              <label class="text-label" aria-label="entrer votre prénom" for="first">Prénom</label>
               <input class="text-control" type="text" id="first" required name="first" />  
                <p class="msgError"></p>
             </div>
             <div class="formData">
-              <label class="text-label"  aria-label="entrer votre nom" for="last">Nom</label>
+              <label class="text-label"  aria-label="entrer votre nom"  for="last">Nom</label>
               <input  class="text-control" type="text"   id="last" required  name="last" minlength="2"/>
               <p class="msgError"></p>
             </div>
             <div class="formData" >
-              <label class="text-label"aria-label="entrer votre email" for="email">E-mail</label>
+              <label class="text-label" aria-label="entrer votre email" for="email">E-mail</label>
               <input class="text-control" type="email" id="email" required name="email"/>
               <p class="msgError"></p>
             </div>
@@ -67,21 +70,21 @@
         </div>
       </div>
       <!-- lightbox -->
-      <dialog id="lightbox" aria-hidden="true" >
-        <div class="content" aria-label="vue rapprochée" tabindex="0" >
-          <img role="button" src="./assets/icons/close-24px 1.png" tabindex="0"  alt="close modal" aria-label="fermer médias lightbox" class="closeLight" />
+      <dialog id="lightbox" role="dialog" aria-hidden="true" aria-label="vue rapprochée" tabindex="0"  >
+        <div class="content"  aria-label="vue en plein ecran">
+          <img role="button" src="./assets/icons/close-24px1.png" tabindex="0"  alt="close modal" aria-label="fermer médias lightbox" class="closeLight" />
           <button class="previous" tabindex="0"  aria-label="photo précédente" > &lt; </button>
           <figure class="photoBox">
-          <video class="mp4" type="video/mp4"  tabindex="0" aria-label="vue rapprochée"></video>
-          <img alt="#" class="picture" type="image/jpg" aria-label="vue rapprochée" tabindex="0"> 
+          <video class="mp4" tabindex="0" aria-label="vue rapprochée"></video>
+          <img alt="#" class="picture" aria-label="vue rapprochée" tabindex="0"> 
           <p class="TitreMed"> </p>            
          </figure> 
-          <button class="next" tabindex="0"   aria-label="photo suivante"> &gt; </button>
+          <button class="next" tabindex="0"  aria-label="photo suivante"> &gt; </button>
         </div>
       </dialog>
       <script src="./scripts/pages/photographer.js" ></script>
       <script src="./scripts/factories/mediafactorie.js"></script>
       <script src="./scripts/utils/contactForm.js" ></script>
       <script src="./scripts/utils/LightBox.js" ></script>
-    </boy>
+    </body>
 </html>

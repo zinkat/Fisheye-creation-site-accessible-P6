@@ -1,6 +1,6 @@
 
 async function getPhotographers() {
-// récuperation du tableau datas
+// récuperation des données datas
 	let response = await fetch("./data/photographers.json");
 	//console.log(response);
 	const datas = await response.json();
@@ -9,7 +9,7 @@ async function getPhotographers() {
 }
 ;
 async function displayData(photographers) {
-	//création section pour affiche les carte photographe
+	// section pour affiche les carte photographe
 	const photographersSection = document.querySelector(".photographer_section");
 
 	//boucle pour récuperer les photographes
@@ -24,6 +24,7 @@ async function displayData(photographers) {
 async function init() {
 	// Récupère les datas des photographes
 	const { photographers } = await getPhotographers();
+	//affichage des photographes
 	displayData(photographers);
 };
 

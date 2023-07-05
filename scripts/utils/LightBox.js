@@ -13,7 +13,7 @@ class LightBox {
             }  
         }    
     }
-
+   /// btn photo suivante
     next() {
      let index =  this.listElement.findIndex(element => element.id == this.currentElement.id);
 
@@ -31,22 +31,22 @@ class LightBox {
      this.display(this.currentElement);
     }
 
-
+         /// btn photo précédente
     previous() {
      let index =  this.listElement.findIndex(element => element.id == this.currentElement.id);
-     console.log(index);
+     //console.log(index);
 
-            if(index == 0){
-                this.currentElement = this.listElement[this.listElement.length - 1];
-            }
- 
-            else {
-                this.currentElement = this.listElement[index - 1 ];
-            }
-     
+        if(index == 0){
+            this.currentElement = this.listElement[this.listElement.length - 1];
+        }
+
+        else {
+            this.currentElement = this.listElement[index - 1 ];
+        }
+    
      this.display(this.currentElement);
     }
-
+         //gestion event btn ligthbox 
     manageEvent() {
 
         document.querySelector("#lightbox .next").addEventListener("click", () => {
@@ -62,7 +62,7 @@ class LightBox {
             this.close();
     
         })
-
+          ///event clavier
         document.querySelector("#lightbox").addEventListener("keydown", (e) => {
             if(e.key === "Escape" ){
                 this.close();
@@ -96,22 +96,16 @@ class LightBox {
     getElementById(id) {
        return this.listElement.find(element=> element.id == id);
    }
-
+     ///affichage ligthbox
    display(boxmedia){
-    // console.log(boxmedia.image);
-    // console.log(boxmedia.title);
-             
+
     let actualImage = boxmedia.image;
     let actualVideo = boxmedia.video;
     let actualTitle = boxmedia.title;
     document.querySelector(".TitreMed").textContent = actualTitle
     document.querySelector(".TitreMed").setAttribute("title", actualTitle)
-    // const nextBtn = document.querySelector(".next");
-    // nextBtn.setAttribute("aria-label", "photo suivante");
-    // nextBtn.setAttribute("tabindex", "0");
-
+   
     if(typeof actualImage !== 'undefined'){
-
         document.querySelector(".picture").style.display = "block"
         document.querySelector(".mp4").style.display = "none";
         const mediaphotographer = `./assets/images/${boxmedia.image}`   
@@ -130,12 +124,11 @@ class LightBox {
         cardBoxV.setAttribute("preload", "metadata");
         cardBoxV.setAttribute("src", mediaphotographerV)
         cardBoxV.setAttribute("aria-label", `vue en pleine ecran ${actualTitle}` )
-
     }
 
     document.querySelector("#lightbox").classList.add("show");              
    }                                            
-
+  ////fermeture ligthbox 
    close(){
     document.querySelector("#lightbox").classList.remove("show");
     const bodyPhotographer = document.getElementById("main");

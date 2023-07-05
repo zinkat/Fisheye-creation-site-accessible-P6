@@ -42,8 +42,8 @@ function photographerFactory(data) {
         prix.setAttribute("tabindex", "0")
         prix.classList.add("prix")
         prix.textContent = price +"€/jour";
-       
 
+    
         const pagePhotographer = document.createElement("a");
         pagePhotographer.classList.add("lienPage");
         pagePhotographer.setAttribute("aria-label", `${name}`);

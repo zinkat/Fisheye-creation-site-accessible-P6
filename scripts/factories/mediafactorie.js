@@ -1,4 +1,4 @@
-function PhotographerFactoryDetail(data) {
+function photographerFactoryDetail(data) {
     
     const { name, portrait, city, country, tagline, price, id} = data;
     //console.log(name);
@@ -91,14 +91,11 @@ function mediaPhotographerFactory(media) {
         const mediaLink = document.createElement("a");
         mediaLink.classList.add("media-link");
         mediaLink.setAttribute("aria-label", `${title} vue en pleine ecran`);
-        //mediaLink.setAttribute("tabindex", `1`);
         const articleMedia = document.createElement('article')
         articleMedia.classList.add('article_media')
         const divMedia = document.createElement('div')
         divMedia.classList.add('div_media')
         divMedia.setAttribute('data-id',`${this.id}`);
-       // divMedia.setAttribute('data-image',`${mediaphotographer}`);
-        //divMedia.setAttribute('data-video',`${videophotographer}`);
         const infoPhoto = document.createElement('div')
         infoPhoto.classList.add('infoPhoto')
         
@@ -110,18 +107,17 @@ function mediaPhotographerFactory(media) {
         const heart = document.createElement('span')
         heart.classList.add('heart')
         heart.setAttribute("role", "button")
-        heart.setAttribute("aria-label", "cliquez pour aimer")
+        heart.setAttribute("aria-label", "cliquez pour aimer la photo"+title)
         heart.setAttribute("tabindex", "0")
         heart.textContent = '❤'
         
         nbLikePhoto.innerHTML = `${likes} `
-       //console.log(image);
+       //console.log(image);    
             if(image){
                     const img = document.createElement('img');
                    // mediaLink.href = `#`
                     img.setAttribute("src", mediaphotographer);
-                    img.setAttribute("alt", title + ". Cliquez pour agrandir la Photo.")
-                    img.setAttribute("title", title)
+                    img.setAttribute("alt",  "Cliquez pour agrandir la Photo"+title)
                     img.setAttribute("tabindex", 0)
                     img.setAttribute("role", "link")
                     img.classList.add("photo");
@@ -135,7 +131,7 @@ function mediaPhotographerFactory(media) {
                     video.setAttribute("src",videophotographer )
                     video.controls = true
                     video.setAttribute("preload", "metadata");
-                    video.setAttribute("alt", title + ". Cliquez pour agrandir la video.")
+                    video.setAttribute("alt",   "Cliquez pour agrandir la video" +title)
                     video.setAttribute("title", title)
                     video.setAttribute("role", "link")
                     video.setAttribute("tabindex", 0)
@@ -159,10 +155,9 @@ function mediaPhotographerFactory(media) {
     
 };
 
-function countLikes(totalLikes) {
-    
+///////calcule total like
+function countLikes(totalLikes) {  
     //console.log(totalLikes); 
-
     const iconHeart = document.createElement("span")
     iconHeart.classList.add("iconHeart");
     const likesDOM = document.createElement("div");
@@ -175,3 +170,35 @@ function countLikes(totalLikes) {
     displayLike.appendChild(likesDOM);
 
 }
+/////// ********ajouter des likes  onclick********///////
+function addLikes(){
+    let parentLikes = document.querySelectorAll('.infoPhoto')
+    let popUpLikes = document.querySelector('.TotalLikes')
+
+    // boucle sur les media du photographer
+    parentLikes.forEach(function(child){
+        let totalLikesPhoto = child.childNodes[1].textContent;
+        let countLike = 0; 
+        const once = {once: true};// ecouter l'evenement une seul fois
+        // ecouter l'evenement
+        child.childNodes[2].addEventListener('click', function(){   
+            countLike = countLike + 1;
+            child.childNodes[1].textContent = parseInt(totalLikesPhoto) + countLike;
+            //mise à jour ttl likes dans la balise
+            totalLikes = parseInt(popUpLikes.textContent) + countLike;
+            popUpLikes.textContent = `${totalLikes}` ; 
+        }, once);
+//////keyboard ecouter le clavier
+        child.childNodes[2].addEventListener('keydown', function(e){
+            if(e.key === "Enter"){                              
+                countLike = countLike + 1;
+                child.childNodes[1].textContent = parseInt(totalLikesPhoto) + countLike;
+                //mise à jour ttl likes dans la balise
+                totalLikes = parseInt(popUpLikes.textContent) + countLike;
+                popUpLikes.textContent = `${totalLikes}` ; 
+            }
+        }, once);
+})
+}
+
+ 

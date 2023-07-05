@@ -84,21 +84,13 @@ let areaText = inputText.value;
    console.log(`Erreur : ${ msgError[0].textContent}`);
 
    }
-//    if(first.length < 2 ){
-//     msgError[0].innerHTML =  "Veuillez entrer au minimum 2 lettres ou plus pour le prénom." 
-//     msgError[0].tabIndex = 0;
-//    console.log(`Erreur : ${ msgError[0].textContent}`);
-//    }  
+ 
    if(regexpLastName.test(last) == false || last.length  < 2 ){
     msgError[1].textContent = "Veuillez entrer uniquement des lettres pour le nom (au minimum 2 lettres)."
     msgError[1].tabIndex = 0;
       console.log(`Erreur : ${ msgError[1].textContent}`);
    }
-//    if(last.length  < 2){
-//     msgError[1].textContent = "Veuillez entrer au minimum 2 lettres ou plus pour le nom."  
-//     msgError[1].tabIndex = 0;
-//    console.log(`Erreur : ${ msgError[1].textContent}`);
-//    }
+
    if(regexpEmail.test(email) == false){
     msgError[2].textContent = "Veuillez entrer une adresse e-mail valide."  
     msgError[2].tabIndex = 0;

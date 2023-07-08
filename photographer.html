@@ -13,7 +13,7 @@
   <body>
       <header class="header">
         <a href="./index.html">
-          <img src="./assets/images/logo.png" alt="Fisheye retour page principale   " class="logo" />
+          <img src="./assets/images/logo.png" alt="Fisheye retour page principale " class="logo" />
         </a>
       </header>
        <!--section info photographe -->
@@ -25,8 +25,8 @@
         </section>
          <!-- select container -->
         <div id="select">
-          <label for="orderSelect" aria-label="liste filtrante">Trier par</label>
-          <select name="orderSelect" id="orderSelect" aria-label="filtrer par" class="orderSelect"  tabindex="0">
+          <label for="orderSelect">Trier par</label>
+          <select name="orderSelect" id="orderSelect" aria-label="Trier par" class="orderSelect" >
             <option disabled selected>Popularité</option>
             <option value="populaire">Popularité</option>
             <option value="date">Date</option>
@@ -38,8 +38,8 @@
       </main>
 
        <!-- formulaire de contact -->
-      <div id="contact_modal" role="dialog" aria-hidden="true" tabindex="0">
-        <div class="modal" aria-label="modale de contact" id="focus" >
+      <div id="contact_modal" role="dialog" aria-hidden="true" aria-label="formulaire de contact" tabindex="0">
+        <div class="modal" id="focus" >
           <header>
             <h2>Contactez-moi <br><span id="modalTitle"></span></h2>
             <img role="button" src="./assets/icons/close.svg" alt="close modal" aria-label="fermer le formulaire" class="close" tabindex="0" />
@@ -62,7 +62,7 @@
             </div>
             <div class="formData" >
               <label class="text-label" aria-label="entrer votre message" for="txtMsg">Votre message</label>
-              <textarea role="textbox" id="txtMsg" class="text-control"  name="txtMsg" minlength="10"  maxlength="200"></textarea>
+              <textarea role="textbox" id="txtMsg" class="text-control"  name="txtMsg" ></textarea>
               <p class="msgError"></p> 
             </div>
             <button class="submit_button" aria-label="envoyer formulaire">Envoyer</button>
@@ -70,16 +70,16 @@
         </div>
       </div>
       <!-- lightbox -->
-      <dialog id="lightbox" role="dialog" aria-hidden="true" aria-label="vue rapprochée" tabindex="0"  >
-        <div class="content"  aria-label="vue en plein ecran">
-          <img role="button" src="./assets/icons/close-24px1.png" tabindex="0"  alt="close modal" aria-label="fermer médias lightbox" class="closeLight" />
-          <button class="previous" tabindex="0"  aria-label="photo précédente" > &lt; </button>
+      <dialog id="lightbox" role="dialog" aria-hidden="true" aria-label="vue rapprochée"  >
+        <div class="content" aria-label="vue rapprochée" tabindex="0">
           <figure class="photoBox">
-          <video class="mp4" tabindex="0" aria-label="vue rapprochée"></video>
-          <img alt="#" class="picture" aria-label="vue rapprochée" tabindex="0"> 
-          <p class="TitreMed"> </p>            
-         </figure> 
-          <button class="next" tabindex="0"  aria-label="photo suivante"> &gt; </button>
+            <img alt="#" class="picture"  tabindex="0"> 
+            <video class="mp4" tabindex="0" ></video>
+            <p class="TitreMed"> </p>            
+           </figure> 
+          <button class="previous"  aria-label="photo précédente" tabindex="0"> &lt; </button>
+          <button class="next" aria-label="photo suivante" tabindex="0"> &gt; </button>
+          <img role="button" src="./assets/icons/close-24px1.png" tabindex="0" aria-label="fermer médias lightbox" class="closeLight" />
         </div>
       </dialog>
       <script src="./scripts/pages/photographer.js" ></script>

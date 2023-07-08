@@ -71,7 +71,8 @@ async function init() {
                 if (optionValue === "populaire") {
                     MediaPhtgr.sort((a, b) => {
                         return b.likes - a.likes;
-                        });          
+                        });    
+                        console.table(MediaPhtgr);
                 }
             //filtre par Date 
                 if (optionValue === "date") {
@@ -93,6 +94,7 @@ async function init() {
                 }
                 return 0;
                 });  
+                console.table(MediaPhtgr);
                 }            
 
             const photographerMediaSection = document.querySelector(".photographermedia_section")
@@ -140,6 +142,11 @@ async function init() {
             /////////////////////KeyUp ecouter l'evenement clavier
             lightBoxCard.addEventListener("keydown", (e) =>{
                 if(e.key === "Enter"){
+                    const bodyPhotographer = document.getElementById("main");
+                    const header = document.querySelector(".header")
+                    bodyPhotographer.style.display = "none";
+                    bodyPhotographer.setAttribute("aria-hidden", "true");
+                    header.style.display ="none";
                     const lightBxMedia = Array.from(media)
                     let MediaPhtgr =[];
                     let i=0;

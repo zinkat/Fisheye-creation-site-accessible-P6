@@ -32,10 +32,9 @@ function photographerFactory(data) {
         photographerCity.setAttribute("aria-label", "Localisation géographique" + city+ "," +country)
         photographerCity.textContent = city + ", " +country;
 
-        const slogan = document.createElement("p");
+        const slogan = document.createElement("blockquote");
         slogan.classList.add("slogan")
         slogan.setAttribute("tabindex", "0")
-        slogan.setAttribute("aria-label", tagline)
         slogan.textContent = tagline;
 
         const prix = document.createElement("p");

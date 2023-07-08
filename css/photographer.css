@@ -338,10 +338,14 @@ form textarea {
 }
 
 .heart:hover{
-font-size: 22px;
-color: #D3573C;
+	font-size: 22px;
+	color: #D3573C;
 }
 
+.heart:focus{
+	font-size: 22px;
+	color: #D3573C;
+}
 /* select Options */
 
 #select {
@@ -390,7 +394,7 @@ select:focus > option:checked {
 #lightbox .closeLight {
 	color: #901c1c;
 	top: 5rem;
-	right: 16rem;
+	right: 17rem;
 	float: right;
 	height: 3rem;
 	width: 3rem;
@@ -405,13 +409,14 @@ select:focus > option:checked {
 	height: 2.5rem;
 	align-items: center;
 	display: flex;
-	padding-left: 10px;
+
 }
 
 .TitreMed{
 	font-size: 1.3rem;
 	color:#901c1c;
 	font-weight: 500;
+	padding: 5px 0 5px 5px;
 }
 
 .previous{
@@ -453,13 +458,13 @@ select:focus > option:checked {
 	display: block;
 	margin: 0 auto;
 	padding: 1.5rem;
-	height: 90vh;
+	height: 95vh; 
 
 }
 
 #lightbox img{
 	border-radius: 5px;
-	width: 65rem;
+	width: 55rem;
 	height: 56rem;
 	max-width: 100%;
 	max-height: 100%;
@@ -469,5 +474,5 @@ select:focus > option:checked {
 
 video{
 	height: 40rem;
-	width: 40rem;
+	width: 56rem;
 }

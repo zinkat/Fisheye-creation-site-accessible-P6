@@ -22,7 +22,7 @@ function photographerFactoryDetail(data) {
         const photographerName = document.createElement('h1');
         photographerName.classList.add("photographerName");
         photographerName.setAttribute("aria-label", name)
-        // photographerName.setAttribute("title", "photographe")
+        photographerName.setAttribute("title", "photographe")
         photographerName.setAttribute("tabindex", "0")
         photographerName.textContent = name;
 
@@ -32,8 +32,7 @@ function photographerFactoryDetail(data) {
         photographerCity.classList.add("photographerCity")
         photographerCity.textContent = city + ", " +country;
       
-        const slogan = document.createElement("p");
-        slogan.setAttribute("aria-label", "slogan du photographe" + tagline)
+        const slogan = document.createElement("blockquote");
         slogan.setAttribute("tabindex", "0")
         slogan.classList.add("slogan")
         slogan.textContent = tagline;
@@ -78,7 +77,7 @@ function photographerFactoryDetail(data) {
 
 function mediaPhotographerFactory(media) { 
     
-    const {id, photographerId, title, image, likes, date, price, video} = media;
+    const {id, photographerId, title, image, likes, video} = media;
     const mediaphotographer = `./assets/images/${image} `;
     const videophotographer =  `./assets/images/${video}`;
     //console.log(mediaphotographer);
@@ -107,7 +106,7 @@ function mediaPhotographerFactory(media) {
         const heart = document.createElement('span')
         heart.classList.add('heart')
         heart.setAttribute("role", "button")
-        heart.setAttribute("aria-label", "cliquez pour aimer la photo"+title)
+        heart.setAttribute("aria-label", "cliquez pour aimer"+title)
         heart.setAttribute("tabindex", "0")
         heart.textContent = '❤'
         

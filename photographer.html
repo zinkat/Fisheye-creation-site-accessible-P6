@@ -1,90 +1,101 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Page photographe professionnel">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-      <header class="header">
-        <a href="./index.html">
-          <img src="./assets/images/logo.png" alt="Fisheye retour page principale " class="logo" />
-        </a>
-      </header>
-       <!--section info photographe -->
-      <main id="main" aria-hidden="false">
-        <section class="photograph-header" aria-label="Information Photographer" tabindex="0">
-          <article class="photograph_infos" >
-          </article>
-          <button aria-label="Contactez-moi" class="contact_button" >Contactez-moi</button>
-        </section>
-         <!-- select container -->
-        <div id="select">
-          <label for="orderSelect">Trier par</label>
-          <select name="orderSelect" id="orderSelect" aria-label="Trier par" class="orderSelect" >
-            <option disabled selected>Popularité</option>
-            <option value="populaire">Popularité</option>
-            <option value="date">Date</option>
-            <option value="title">Titre</option>
-          </select>
-        </div>
-        <section class="photograph_medias"></section> 
-        <section class="photographermedia_section"></section> 
-      </main>
 
-       <!-- formulaire de contact -->
-      <div id="contact_modal" role="dialog" aria-hidden="true" aria-label="formulaire de contact" tabindex="0">
-        <div class="modal" id="focus" >
-          <header>
-            <h2>Contactez-moi <br><span id="modalTitle"></span></h2>
-            <img role="button" src="./assets/icons/close.svg" alt="close modal" aria-label="fermer le formulaire" class="close" tabindex="0" />
-          </header>
-          <form  name="message" class="form">
-            <div class="formData">
-              <label class="text-label" aria-label="entrer votre prénom" for="first">Prénom</label>
-              <input class="text-control" type="text" id="first" required name="first" />  
-               <p class="msgError"></p>
-            </div>
-            <div class="formData">
-              <label class="text-label"  aria-label="entrer votre nom"  for="last">Nom</label>
-              <input  class="text-control" type="text"   id="last" required  name="last" minlength="2"/>
-              <p class="msgError"></p>
-            </div>
-            <div class="formData" >
-              <label class="text-label" aria-label="entrer votre email" for="email">E-mail</label>
-              <input class="text-control" type="email" id="email" required name="email"/>
-              <p class="msgError"></p>
-            </div>
-            <div class="formData" >
-              <label class="text-label" aria-label="entrer votre message" for="txtMsg">Votre message</label>
-              <textarea role="textbox" id="txtMsg" class="text-control"  name="txtMsg" ></textarea>
-              <p class="msgError"></p> 
-            </div>
-            <button class="submit_button" aria-label="envoyer formulaire">Envoyer</button>
-          </form>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Page photographe professionnel" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+  <title>Fisheye - photographe</title>
+</head>
+
+<body>
+  <header class="header">
+    <a href="./index.html">
+      <img src="./assets/images/logo.png" alt="Fisheye retour page principale " class="logo" />
+    </a>
+  </header>
+  <!--section info photographe -->
+  <main id="main" aria-hidden="false">
+    <section class="photograph-header" aria-label="Information Photographer" tabindex="0">
+      <article class="photograph_infos"></article>
+      <button aria-label="Contactez-moi" class="contact_button">
+        Contactez-moi
+      </button>
+    </section>
+    <!-- select container -->
+    <div id="select">
+      <label for="orderSelect">Trier par</label>
+      <select name="orderSelect" id="orderSelect" aria-label="Trier par" class="orderSelect">
+        <option disabled selected>Popularité</option>
+        <option value="populaire">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </div>
+    <section class="photograph_medias"></section>
+    <section class="photographermedia_section"></section>
+  </main>
+  <!-- formulaire de contact -->
+  <div id="contact_modal" role="dialog" aria-hidden="true" aria-label="formulaire de contact" tabindex="0">
+    <div class="modal" id="focus">
+      <header>
+        <h2>Contactez-moi <br /><span id="modalTitle"></span></h2>
+        <img role="button" src="./assets/icons/close.svg" alt="close modal" aria-label="fermer le formulaire"
+          class="close" tabindex="0" />
+      </header>
+      <form name="message" class="form">
+        <div class="formData">
+          <label class="text-label" aria-label="entrer votre prénom" for="first">Prénom</label>
+          <input class="text-control" type="text" id="first" required name="first" />
+          <p class="msgError"></p>
         </div>
-      </div>
-      <!-- lightbox -->
-      <dialog id="lightbox" role="dialog" aria-hidden="true" aria-label="vue rapprochée"  >
-        <div class="content" aria-label="vue rapprochée" tabindex="0">
-          <figure class="photoBox">
-            <img alt="#" class="picture"  tabindex="0"> 
-            <video class="mp4" tabindex="0" ></video>
-            <p class="TitreMed"> </p>            
-           </figure> 
-          <button class="previous"  aria-label="photo précédente" tabindex="0"> &lt; </button>
-          <button class="next" aria-label="photo suivante" tabindex="0"> &gt; </button>
-          <img role="button" src="./assets/icons/close-24px1.png" tabindex="0" aria-label="fermer médias lightbox" class="closeLight" />
+        <div class="formData">
+          <label class="text-label" aria-label="entrer votre nom" for="last">Nom</label>
+          <input class="text-control" type="text" id="last" required name="last" minlength="2" />
+          <p class="msgError"></p>
         </div>
-      </dialog>
-      <script src="./scripts/pages/photographer.js" ></script>
-      <script src="./scripts/factories/mediafactorie.js"></script>
-      <script src="./scripts/utils/contactForm.js" ></script>
-      <script src="./scripts/utils/LightBox.js" ></script>
-    </body>
+        <div class="formData">
+          <label class="text-label" aria-label="entrer votre email" for="email">E-mail</label>
+          <input class="text-control" type="email" id="email" required name="email" />
+          <p class="msgError"></p>
+        </div>
+        <div class="formData">
+          <label class="text-label" aria-label="entrer votre message" for="txtMsg">Votre message</label>
+          <textarea role="textbox" id="txtMsg" class="text-control" name="txtMsg"></textarea>
+          <p class="msgError"></p>
+        </div>
+        <button class="submit_button" aria-label="envoyer formulaire">
+          Envoyer
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- lightbox -->
+  <dialog id="lightbox" role="dialog" aria-hidden="true" aria-label="vue rapprochée" tabindex="0">
+    <div class="content" aria-label="vue rapprochée">
+      <figure class="photoBox">
+        <img alt="#" class="picture" tabindex="0" />
+        <video class="mp4" tabindex="0"></video>
+        <p class="TitreMed"></p>
+      </figure>
+      <button class="previous" aria-label="photo précédente" tabindex="0">
+        &lt;
+      </button>
+      <button class="next" aria-label="photo suivante" tabindex="0">
+        &gt;
+      </button>
+      <img role="button" src="./assets/icons/close-24px1.png" tabindex="0" alt="bouton fermeture lightbox"
+        aria-label="fermer médias lightbox" class="closeLight" />
+    </div>
+  </dialog>
+  <script src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/factories/mediafactorie.js"></script>
+  <script src="./scripts/utils/contactForm.js"></script>
+  <script src="./scripts/utils/LightBox.js"></script>
+</body>
+
 </html>

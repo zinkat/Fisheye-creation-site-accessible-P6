@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 class LightBox {
   constructor(listElement) {
     this.currentElement = null;
@@ -76,7 +77,7 @@ class LightBox {
 
     // })
 
-    document.querySelector("#lightbox").addEventListener("keyup", (event) => {
+    document.addEventListener("keyup", (event) => {
       switch (event.key) {
         case "ArrowRight":
           this.next();

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */ 
 let params = new URL(document.location).searchParams;
 let id = parseInt(params.get("id"));
 

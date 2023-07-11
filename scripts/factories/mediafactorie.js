@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */ 
+/* eslint-disable no-unused-vars */ 
 function photographerFactoryDetail(data) {
-  const { name, portrait, city, country, tagline, price, id } = data;
+  const { name, portrait, city, country, tagline, price} = data;
   const picture = `./assets/photographers/${portrait}`;
 
   function getUserCardDOM() {

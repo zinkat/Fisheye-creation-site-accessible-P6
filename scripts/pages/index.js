@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */ 
 async function getPhotographers() {
   // récuperation des données datas
   let response = await fetch("./data/photographers.json");

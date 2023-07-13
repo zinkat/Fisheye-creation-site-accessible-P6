@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */ 
+/* eslint-disable no-undef */
 let params = new URL(document.location).searchParams;
 let id = parseInt(params.get("id"));
 
@@ -112,19 +112,23 @@ async function init() {
         bodyPhotographer.style.display = "none";
         bodyPhotographer.setAttribute("aria-hidden", "true");
         header.style.display = "none";
-
-        const lightBxMedia = Array.from(media);
-        //list media du photgrapher
+        const closeView = document.querySelectorAll(".article_media");
+        const lightBxMedia = Array.from(closeView);
+        const lightBxMediaJson = Array.from(media);
+        // list media du photgrapher
         let MediaPhtgr = [];
         let i = 0;
         lightBxMedia.forEach((med) => {
-          if (med.photographerId == id) {
-            MediaPhtgr[i] = med;
-            i++;
-          }
+          lightBxMediaJson.forEach((medJs) => {
+            if (
+              medJs.id == med.firstChild.dataset.id &&
+              medJs.photographerId == id
+            ) {
+              MediaPhtgr[i] = medJs;
+              i++;
+            }
+          });
         });
-        //console.log(MediaPhtgr);
-
         let lightBox = new LightBox(MediaPhtgr);
         lightBox.show(e.currentTarget.dataset.id);
       });
@@ -137,16 +141,24 @@ async function init() {
           bodyPhotographer.style.display = "none";
           bodyPhotographer.setAttribute("aria-hidden", "true");
           header.style.display = "none";
-          const lightBxMedia = Array.from(media);
+          const closeView = document.querySelectorAll(".article_media");
+
+          const lightBxMedia = Array.from(closeView);
+          const lightBxMediaJson = Array.from(media);
+          // list media du photgrapher
           let MediaPhtgr = [];
           let i = 0;
           lightBxMedia.forEach((med) => {
-            if (med.photographerId == id) {
-              MediaPhtgr[i] = med;
-              i++;
-            }
+            lightBxMediaJson.forEach((medJs) => {
+              if (
+                medJs.id == med.firstChild.dataset.id &&
+                medJs.photographerId == id
+              ) {
+                MediaPhtgr[i] = medJs;
+                i++;
+              }
+            });
           });
-          // console.log(MediaPhtgr);
           let lightBox = new LightBox(MediaPhtgr);
           lightBox.show(e.currentTarget.dataset.id);
         }

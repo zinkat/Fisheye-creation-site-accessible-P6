@@ -3,6 +3,7 @@ class LightBox {
   constructor(listElement) {
     this.currentElement = null;
     this.listElement = listElement;
+    // console.log(listElement);
     this.manageEvent();
   }
 
@@ -10,7 +11,7 @@ class LightBox {
     for (let i = 0; i < this.listElement.length; i++) {
       if (this.listElement[i].id === parseInt(id)) {
         this.currentElement = this.getElementById(id);
-        this.display(this.listElement[i]);
+        this.display(this.currentElement);
       }
     }
   }
@@ -28,6 +29,7 @@ class LightBox {
     } else {
       this.currentElement = this.listElement[index + 1];
     }
+    console.log(this.currentElement);
 
     this.display(this.currentElement);
   }
@@ -99,17 +101,18 @@ class LightBox {
     return this.listElement.find((element) => element.id == id);
   }
   ///affichage ligthbox
-  display(boxmedia) {
-    let actualImage = boxmedia.image;
-    let actualVideo = boxmedia.video;
-    let actualTitle = boxmedia.title;
+  display(element) {
+    let actualImage = element.image;
+    let actualVideo = element.video;
+    let actualTitle = element.title;
+
     document.querySelector(".TitreMed").textContent = actualTitle;
     document.querySelector(".TitreMed").setAttribute("title", actualTitle);
 
     if (typeof actualImage !== "undefined") {
       document.querySelector(".picture").style.display = "block";
       document.querySelector(".mp4").style.display = "none";
-      const mediaphotographer = `./assets/images/${boxmedia.image}`;
+      const mediaphotographer = `./assets/images/${element.image}`;
       const cardBox = document.querySelector(".picture");
       cardBox.setAttribute("alt", actualTitle);
       cardBox.setAttribute("src", mediaphotographer);
@@ -118,7 +121,7 @@ class LightBox {
     if (typeof actualVideo !== "undefined") {
       document.querySelector(".picture").style.display = "none";
       document.querySelector(".mp4").style.display = "block";
-      const mediaphotographerV = `./assets/images/${boxmedia.video}`;
+      const mediaphotographerV = `./assets/images/${element.video}`;
       const cardBoxV = document.querySelector(".mp4");
       cardBoxV.controls = true;
       cardBoxV.setAttribute("preload", "metadata");
